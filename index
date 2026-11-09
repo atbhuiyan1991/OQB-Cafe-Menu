@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Quarter Pounder (OQB) - Menu</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #10100f;
+            --bg-card: #1a1a18;
+            --bg-card-hover: #242420;
+            --gold: #d8b56d;
+            --gold-light: #f3e5ab;
+            --gold-dark: #b89343;
+            --text-main: #f5f5f7;
+            --text-muted: #a1a1a6;
+            --border-color: rgba(216, 181, 109, 0.2);
+            --red: #ff4d4d;
+            --green: #2ecc71;
+            --font-en: 'Poppins', sans-serif;
+            --font-ar: 'Cairo', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-en);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html[dir="rtl"] body {
+            font-family: var(--font-ar);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-dark);
+            border-radius: 4px;
+        }
+
+        /* Header Layout */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(16, 16, 15, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--bg-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 0 15px rgba(216, 181, 109, 0.3);
+        }
+
+        .brand-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .lang-btn, .cart-btn-trigger {
+            background: rgba(216, 181, 109, 0.1);
+            border: 1px solid var(--border-color);
+            color: var(--gold);
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .lang-btn:hover, .cart-btn-trigger:hover {
+            background: var(--gold);
+            color: var(--bg-dark);
+        }
+
+        .cart-badge {
+            background: var(--red);
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 2px 7px;
+            border-radius: 50%;
+        }
+
+        /* Hero Banner */
+        .hero {
+            text-align: center;
+            padding: 3rem 1.5rem 2rem;
+            background: radial-gradient(circle at center, rgba(216, 181, 109, 0.15) 0%, rgba(16, 16, 15, 1) 70%);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.8rem 1.2rem 0.8rem 2.8rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        html[dir="rtl"] .search-input {
+            padding: 0.8rem 2.8rem 0.8rem 1.2rem;
+        }
+
+        .search-input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 10px rgba(216, 181, 109, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+        }
+
+        html[dir="rtl"] .search-icon {
+            left: auto;
+            right: 1rem;
+        }
+
+        /* Categories Section */
+        .categories-wrapper {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 75px;
+            background: rgba(16, 16, 15, 0.95);
+            z-index: 90;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .cat-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.6rem 1.4rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .cat-btn.active, .cat-btn:hover {
+            background: var(--gold);
+            color: var(--bg-dark);
+            border-color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Menu Grid */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--gold);
+            color: var(--bg-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        html[dir="rtl"] .badge {
+            right: auto;
+            left: 12px;
+        }
+
+        .card-body {
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .item-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.4rem;
+        }
+
+        .item-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 0.8rem;
+            border-top: 1px dashed rgba(255,255,255,0.08);
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .add-cart-btn {
+            background: rgba(216, 181, 109, 0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .add-cart-btn:hover {
+            background: var(--gold);
+            color: var(--bg-dark);
+        }
+
+        /* Cart Drawer */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -420px;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: var(--bg-card);
+            z-index: 201;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        html[dir="rtl"] .cart-drawer {
+            right: auto;
+            left: -420px;
+        }
+
+        .cart-overlay.active .cart-drawer {
+            right: 0;
+        }
+
+        html[dir="rtl"] .cart-overlay.active .cart-drawer {
+            left: 0;
+            right: auto;
+        }
+
+        .cart-header {
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            color: var(--gold);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .cart-item-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .cart-item-info span {
+            color: var(--gold);
+            font-size: 0.85rem;
+        }
+
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .qty-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            width: 26px;
+            height: 26px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cart-footer {
+            padding: 1.2rem;
+            border-top: 1px solid var(--border-color);
+            background: rgba(0,0,0,0.2);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .notes-input {
+            width: 100%;
+            padding: 0.6rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: #fff;
+            margin-bottom: 1rem;
+            resize: none;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: var(--green);
+            color: #fff;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .empty-cart-msg {
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 0.8rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-area">
+            <div class="logo-icon">OQB</div>
+            <div class="brand-name">One Quarter Pounder</div>
+        </div>
+        <div class="nav-actions">
+            <button class="lang-btn" id="langToggle">
+                <i class="fa-solid fa-globe"></i> <span id="langText">عربي</span>
+            </button>
+            <button class="cart-btn-trigger" id="openCart">
+                <i class="fa-solid fa-shopping-bag"></i>
+                <span class="cart-badge" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 id="heroTitle">Taste the Premium Quality</h1>
+        <p id="heroSubtitle">Delicious Pizzas, Burgers, Zinkers & Specials made fresh for you.</p>
+        
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search menu items...">
+        </div>
+    </section>
+
+    <!-- Category Filter Bar -->
+    <div class="categories-wrapper" id="categoryList">
+        <button class="cat-btn active" data-category="all">All</button>
+        <button class="cat-btn" data-category="Pizzas">Pizzas</button>
+        <button class="cat-btn" data-category="Burgers">Burgers</button>
+        <button class="cat-btn" data-category="Zinkers">Zinkers & Wraps</button>
+    </div>
+
+    <!-- Main Container Grid -->
+    <main class="container">
+        <div class="menu-grid" id="menuGrid">
+            <!-- Items rendered via JavaScript -->
+        </div>
+    </main>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h3 id="cartTitle">Your Order</h3>
+                <button class="close-cart" id="closeCart"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items rendered dynamically -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span id="totalText">Total:</span>
+                    <span id="totalAmount" style="color: var(--gold);">0.00 OMR</span>
+                </div>
+                <textarea class="notes-input" id="orderNotes" rows="2" placeholder="Add special instructions..."></textarea>
+                <button class="checkout-btn" id="whatsappCheckout">
+                    <i class="fa-brands fa-whatsapp"></i> <span id="checkoutText">Order via WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Menu Data Arrays from user uploaded images
+        const menuItems = [
+            // Pizzas
+            { id: 1, category: "Pizzas", name_en: "Mashrom Chicken Pizza", name_ar: "بيتزا دجاج مشروم", desc_en: "Delicious pizza topped with chicken, mushrooms, and cheese.", desc_ar: "بيتزا لذيذة مغطاة بالدجاج والمشروم والجبن.", price: 3.000, badge: "Item 72", img: "image.png" },
+            { id: 2, category: "Pizzas", name_en: "Chicken Pizza", name_ar: "بيتزا الدجاج", desc_en: "Classic chicken pizza with fresh vegetables and mozzarella.", desc_ar: "بيتزا الدجاج الكلاسيكية مع الخضار الطازجة والموزاريلا.", price: 3.000, badge: "Item 70", img: "image_2.png" },
+            { id: 3, category: "Pizzas", name_en: "Prawns Pizza", name_ar: "بيتزا روبيان", desc_en: "Seafood pizza topped with fresh succulent prawns.", desc_ar: "بيتزا المأكولات البحرية مغطاة بالروبيان الطازج.", price: 3.000, badge: "Item 71", img: "image_3.png" },
+            { id: 4, category: "Pizzas", name_en: "Mixed Pizza", name_ar: "بيتزا مشكلة", desc_en: "Loaded mixed pizza with a variety of toppings and olives.", desc_ar: "بيتزا مشكلة غنية بالعديد من الإضافات والزيتون.", price: 3.000, badge: "Item 69", img: "image_5.png" },
+
+            // Burgers
+            { id: 5, category: "Burgers", name_en: "Zinker w. Cheese Burger", name_ar: "زنكر و جبن برجر", desc_en: "Crispy zinker chicken fillet burger with melted cheese.", desc_ar: "برجر فيليه الدجاج المقرمش مع الجبن الذائب.", price: 0.800, badge: "Item 64", img: "image_7.png" },
+            { id: 6, category: "Burgers", name_en: "Mexico Double Spicy Burger", name_ar: "برجر المكسيك دبل سبايسي", desc_en: "Double spicy chicken burger with zesty Mexican flavor.", desc_ar: "برجر دجاج مزدوج حار بنكهة المكسيك المميزة.", price: 1.400, badge: "Item 63", img: "image_8.png" },
+            { id: 7, category: "Burgers", name_en: "Har nar Spicy Double Burger", name_ar: "هار نار سبايسي دبل برجر", desc_en: "Extra hot and spicy double chicken burger for spice lovers.", desc_ar: "برجر دجاج مزدوج حار جداً لعشاق المذاق الحار.", price: 1.300, badge: "Item 62", img: "image_9.png" },
+            { id: 8, category: "Burgers", name_en: "Zinker Zamboo Burger", name_ar: "برجر زنكر زامبو", desc_en: "Giant zinker burger packed with extra layers and flavor.", desc_ar: "برجر زنكر ضخم مليء بالطبقات والنكهة الرائعة.", price: 1.200, badge: "Item 61", img: "image_10.png" },
+
+            // Zinkers & Wraps
+            { id: 9, category: "Zinkers", name_en: "Classic Zinker", name_ar: "كلاسيك زينكر", desc_en: "Classic crispy chicken zinker sandwich.", desc_ar: "ساندويتش دجاج كلاسيك كريسبي زينكر.", price: 1.200, badge: "Item 66", img: "image_4.png" },
+            { id: 10, category: "Zinkers", name_en: "Mexico Classic Zinker", name_ar: "المكسيك كلاسيك زينكر", desc_en: "Classic zinker with Mexican spicy twist.", desc_ar: "زينكر كلاسيك مع لمسة مكسيكية حارة.", price: 1.200, badge: "Item 67", img: "image_4.png" },
+            { id: 11, category: "Zinkers", name_en: "Tikka Classic Zinker", name_ar: "تكا كلاسيك زينكر", desc_en: "Classic zinker infused with rich Tikka seasoning.", desc_ar: "زينكر كلاسيك بنكهة التكا الغنية.", price: 1.200, badge: "Item 68", img: "image_4.png" },
+            { id: 12, category: "Zinkers", name_en: "Fantasia", name_ar: "فانتازيا", desc_en: "Special multi-layered savory wrap / sandwich fantasia.", desc_ar: "ساندويتش فانتازيا المميز متعدد الطبقات.", price: 1.300, badge: "Special", img: "image_6.png" }
+        ];
+
+        // App Translations
+        const translations = {
+            en: {
+                langName: "عربي",
+                heroTitle: "Taste the Premium Quality",
+                heroSubtitle: "Delicious Pizzas, Burgers, Zinkers & Specials made fresh for you.",
+                searchPlaceholder: "Search menu items...",
+                catAll: "All",
+                cartTitle: "Your Order",
+                totalText: "Total:",
+                notesPlaceholder: "Add special instructions...",
+                checkoutText: "Order via WhatsApp",
+                emptyCart: "Your cart is currently empty."
+            },
+            ar: {
+                langName: "English",
+                heroTitle: "استمتع بالجودة الفاخرة",
+                heroSubtitle: "أشهى البيتزا والبرجر والزنكر والوجبات المحضرة طازجة من أجلك.",
+                searchPlaceholder: "ابحث في قائمة الطعام...",
+                catAll: "الكل",
+                cartTitle: "طلبك الحالي",
+                totalText: "الإجمالي:",
+                notesPlaceholder: "إضافة ملاحظات خاصة بالطلب...",
+                checkoutText: "إرسال الطلب عبر الواتساب",
+                emptyCart: "سلة التسوق فارغة حالياً."
+            }
+        };
+
+        // State Management
+        let currentLang = localStorage.getItem('oqb_lang') || 'en';
+        let cart = JSON.parse(localStorage.getItem('oqb_cart')) || [];
+        let activeCategory = 'all';
+
+        // DOM Elements
+        const menuGrid = document.getElementById('menuGrid');
+        const langToggleBtn = document.getElementById('langToggle');
+        const langText = document.getElementById('langText');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const openCartBtn = document.getElementById('openCart');
+        const closeCartBtn = document.getElementById('closeCart');
+        const cartCount = document.getElementById('cartCount');
+        const cartItems = document.getElementById('cartItems');
+        const totalAmount = document.getElementById('totalAmount');
+        const searchInput = document.getElementById('searchInput');
+        const whatsappCheckout = document.getElementById('whatsappCheckout');
+
+        // Initialize App
+        function init() {
+            setLanguage(currentLang);
+            renderMenu();
+            updateCart();
+            setupEventListeners();
+        }
+
+        // Switch Language & Direction
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('oqb_lang', lang);
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            langText.textContent = translations[lang].langName;
+            document.getElementById('heroTitle').textContent = translations[lang].heroTitle;
+            document.getElementById('heroSubtitle').textContent = translations[lang].heroSubtitle;
+            searchInput.placeholder = translations[lang].searchPlaceholder;
+            document.getElementById('cartTitle').textContent = translations[lang].cartTitle;
+            document.getElementById('totalText').textContent = translations[lang].totalText;
+            document.getElementById('orderNotes').placeholder = translations[lang].notesPlaceholder;
+            document.getElementById('checkoutText').textContent = translations[lang].checkoutText;
+
+            renderMenu();
+            updateCart();
+        }
+
+        // Render Menu Cards
+        function renderMenu() {
+            const searchTerm = searchInput.value.toLowerCase();
+            menuGrid.innerHTML = '';
+
+            const filteredItems = menuItems.filter(item => {
+                const matchCategory = activeCategory === 'all' || item.category === activeCategory;
+                const name = currentLang === 'ar' ? item.name_ar : item.name_en;
+                const desc = currentLang === 'ar' ? item.desc_ar : item.desc_en;
+                const matchSearch = name.toLowerCase().includes(searchTerm) || desc.toLowerCase().includes(searchTerm);
+                return matchCategory && matchSearch;
+            });
+
+            if(filteredItems.length === 0) {
+                menuGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); font-size: 1.1rem; padding: 2rem;">No items found matching your criteria.</p>`;
+                return;
+            }
+
+            filteredItems.forEach(item => {
+                const title = currentLang === 'ar' ? item.name_ar : item.name_en;
+                const desc = currentLang === 'ar' ? item.desc_ar : item.desc_en;
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    ${item.badge ? `<span class="badge">${item.badge}</span>` : ''}
+                    <img src="${item.img}" alt="${title}" class="card-img" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="item-title">${title}</h3>
+                        <p class="item-desc">${desc}</p>
+                        <div class="card-footer">
+                            <span class="price">${item.price.toFixed(3)} R.O.</span>
+                            <button class="add-cart-btn" onclick="addToCart(${item.id})">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                menuGrid.appendChild(card);
+            });
+        }
+
+        // Cart Actions
+        window.addToCart = function(id) {
+            const existing = cart.find(i => i.id === id);
+            if(existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ id: id, qty: 1 });
+            }
+            saveCart();
+            updateCart();
+            openCartDrawer();
+        };
+
+        function updateCart() {
+            localStorage.setItem('oqb_cart', JSON.stringify(cart));
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            cartCount.textContent = totalCount;
+
+            cartItems.innerHTML = '';
+            let grandTotal = 0;
+
+            if(cart.length === 0) {
+                cartItems.innerHTML = `<p class="empty-cart-msg">${translations[currentLang].emptyCart}</p>`;
+                totalAmount.textContent = "0.000 R.O.";
+                return;
+            }
+
+            cart.forEach(cartItem => {
+                const item = menuItems.find(i => i.id === cartItem.id);
+                if(!item) return;
+
+                const name = currentLang === 'ar' ? item.name_ar : item.name_en;
+                const itemTotal = item.price * cartItem.qty;
+                grandTotal += itemTotal;
+
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <div class="cart-item-info">
+                        <h4>${name}</h4>
+                        <span>${item.price.toFixed(3)} R.O. x ${cartItem.qty}</span>
+                    </div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
+                        <span>${cartItem.qty}</span>
+                        <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+                    </div>
+                `;
+                cartItems.appendChild(itemElement);
+            });
+
+            totalAmount.textContent = `${grandTotal.toFixed(3)} R.O.`;
+        }
+
+        window.changeQty = function(id, delta) {
+            const idx = cart.findIndex(i => i.id === id);
+            if(idx !== -1) {
+                cart[idx].qty += delta;
+                if(cart[idx].qty <= 0) {
+                    cart.splice(idx, 1);
+                }
+            }
+            saveCart();
+            updateCart();
+        };
+
+        function saveCart() {
+            localStorage.setItem('oqb_cart', JSON.stringify(cart));
+        }
+
+        function openCartDrawer() {
+            cartOverlay.classList.add('active');
+        }
+
+        function closeCartDrawer() {
+            cartOverlay.classList.remove('active');
+        }
+
+        // WhatsApp Order Checkout
+        function sendWhatsAppOrder() {
+            if(cart.length === 0) return;
+
+            const phone = "96890000000"; // Replace with your WhatsApp Business Number
+            let text = currentLang === 'ar' ? "🛒 *طلب جدید من مطعم One Quarter Pounder*\n\n" : "🛒 *New Order from One Quarter Pounder*\n\n";
+
+            let grandTotal = 0;
+            cart.forEach((cartItem, idx) => {
+                const item = menuItems.find(i => i.id === cartItem.id);
+                if(item) {
+                    const name = currentLang === 'ar' ? item.name_ar : item.name_en;
+                    const total = item.price * cartItem.qty;
+                    grandTotal += total;
+                    text += `${idx + 1}. *${name}* x ${cartItem.qty} = ${total.toFixed(3)} R.O.\n`;
+                }
+            });
+
+            text += `\n💰 *${translations[currentLang].totalText}* ${grandTotal.toFixed(3)} R.O.\n`;
+
+            const notes = document.getElementById('orderNotes').value.trim();
+            if(notes) {
+                text += `📝 *Notes:* ${notes}\n`;
+            }
+
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+
+        // Event Listeners
+        function setupEventListeners() {
+            langToggleBtn.addEventListener('click', () => {
+                setLanguage(currentLang === 'en' ? 'ar' : 'en');
+            });
+
+            openCartBtn.addEventListener('click', openCartDrawer);
+            closeCartBtn.addEventListener('click', closeCartDrawer);
+            cartOverlay.addEventListener('click', (e) => {
+                if(e.target === cartOverlay) closeCartDrawer();
+            });
+
+            searchInput.addEventListener('input', renderMenu);
+
+            document.getElementById('categoryList').addEventListener('click', (e) => {
+                if(e.target.classList.contains('cat-btn')) {
+                    document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    activeCategory = e.target.dataset.category;
+                    renderMenu();
+                }
+            });
+
+            whatsappCheckout.addEventListener('click', sendWhatsAppOrder);
+        }
+
+        // Run On Load
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
